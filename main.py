@@ -4,7 +4,7 @@ import requests
 def dish_fetch(num): # Función requerida en el Readme
     
     # 1. Hacemos la solicitud GET a la API
-    response = requests.get("https://api-colombia.com/api/v1/TypicalDish/" + num) # Se agrega en num
+    response = requests.get(f"https://api-colombia.com/api/v1/TypicalDish/{num}") # Se agrega el num concatenado a la URL para obtener el plato específico (debía usar f-string {num} para concatenar o str(num), por eso la prueba pytest no pasaba)
     
     # 2. Convertimos el contenido JSON en un diccionario de Python
     plato = json.loads(response.content)
